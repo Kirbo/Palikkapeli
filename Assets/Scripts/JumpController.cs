@@ -28,6 +28,15 @@ public class JumpController : MonoBehaviour
     void Update()
     {
         textComponent.transform.rotation = Quaternion.identity;
+
+        if (IsGrounded())
+        {
+            textComponent.color = Color.green;
+        }
+        else
+        {
+            textComponent.color = Color.red;
+        }
     }
 
     bool IsGrounded()
@@ -37,7 +46,9 @@ public class JumpController : MonoBehaviour
 
     public void Jump(float power)
     {
-        if (IsGrounded())
+        //if (IsGrounded())
+        {
             rbody.AddForceAtPosition(Vector3.up * power, transform.position);
+        }
     }
 }

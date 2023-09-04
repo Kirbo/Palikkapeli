@@ -16,51 +16,52 @@ public class CubeController : MonoBehaviour
         jumpers = gameObject.GetComponentsInChildren<JumpController>();
         for (int i = 0; i < jumpers.Length; i++)
         {
-            jumpers[i].setText((i + 1).ToString());
+            jumpers[i].setText( (i+1).ToString());
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        int id = -1;
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKey(KeyCode.Alpha1))
         {
-            id = 0;
+            jumpers[0].Jump(JumpPower);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        
+        if (Input.GetKey(KeyCode.Alpha2))
         {
-            id = 1;
+            jumpers[1].Jump(JumpPower);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        
+        if (Input.GetKey(KeyCode.Alpha3))
         {
-            id = 2;
+            jumpers[2].Jump(JumpPower);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        
+        if (Input.GetKey(KeyCode.Alpha4))
         {
-            id = 3;
+            jumpers[3].Jump(JumpPower);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        
+        if (Input.GetKey(KeyCode.Alpha5))
         {
-            id = 4;
+            jumpers[4].Jump(JumpPower);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        
+        if (Input.GetKey(KeyCode.Alpha6))
         {
-            id = 5;
+            jumpers[5].Jump(JumpPower);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha7))
+        
+        if (Input.GetKey(KeyCode.Alpha7))
         {
-            id = 6;
+            jumpers[6].Jump(JumpPower);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha8))
+        
+        if (Input.GetKey(KeyCode.Alpha8))
         {
-            id = 7;
-        }
-
-        if (id != -1)
-        {
-            jumpers[id].Jump(JumpPower);
+            jumpers[7].Jump(JumpPower);
         }
     }
 }

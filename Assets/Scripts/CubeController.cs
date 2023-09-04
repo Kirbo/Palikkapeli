@@ -10,6 +10,7 @@ public class CubeController : MonoBehaviour
     [SerializeField]
     float JumpPower = 50.0f;
 
+    Rigidbody rbody;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +19,13 @@ public class CubeController : MonoBehaviour
         {
             jumpers[i].setText( (i+1).ToString());
         }
+        Physics.gravity = new Vector3(0, -0.5f, 0);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        
         if (Input.GetKey(KeyCode.Alpha1))
         {
             jumpers[0].Jump(JumpPower);
@@ -43,7 +45,29 @@ public class CubeController : MonoBehaviour
         {
             jumpers[3].Jump(JumpPower);
         }
+
+        if (Input.GetKey(KeyCode.Alpha5))
+        {
+            jumpers[0].Jump(-JumpPower);
+        }
         
+        if (Input.GetKey(KeyCode.Alpha6))
+        {
+            jumpers[1].Jump(-JumpPower);
+        }
+        
+        if (Input.GetKey(KeyCode.Alpha7))
+        {
+            jumpers[2].Jump(-JumpPower);
+        }
+        
+        if (Input.GetKey(KeyCode.Alpha8))
+        {
+            jumpers[3].Jump(-JumpPower);
+        }
+        
+        
+        /*
         if (Input.GetKey(KeyCode.Alpha5))
         {
             jumpers[4].Jump(JumpPower);
@@ -63,5 +87,6 @@ public class CubeController : MonoBehaviour
         {
             jumpers[7].Jump(JumpPower);
         }
+        */
     }
 }

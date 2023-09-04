@@ -14,6 +14,9 @@ public class JumpController : MonoBehaviour
 
     float usePower = 0;
 
+    [SerializeField]
+    bool localSpace = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,17 +43,20 @@ public class JumpController : MonoBehaviour
             textComponent.color = Color.red;
         }
 
-        if (usePower > 0)
+        if (usePower != 0)
         {
-               textComponent.color = Color.yellow;
+            textComponent.color = Color.yellow;
         }
     }
 
     void FixedUpdate()
     {
-        if (usePower > 0)
+        if (usePower != 0)
         {
-            rbody.AddForceAtPosition(Vector3.up * usePower, transform.position);
+            if (localSpace)
+                rbody.AddForceAtPosition(transform.up * usePower, transform.position);
+            else
+                rbody.AddForceAtPosition(Vector3.up * usePower, transform.position);
         }
         usePower = 0;
     }

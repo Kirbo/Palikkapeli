@@ -12,6 +12,8 @@ public class JumpController : MonoBehaviour
     [SerializeField]
     LayerMask groundMask;
 
+    float usePower = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,20 @@ public class JumpController : MonoBehaviour
         {
             textComponent.color = Color.red;
         }
+
+        if (usePower > 0)
+        {
+               textComponent.color = Color.yellow;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (usePower > 0)
+        {
+            rbody.AddForceAtPosition(Vector3.up * usePower, transform.position);
+        }
+        usePower = 0;
     }
 
     bool IsGrounded()
@@ -46,9 +62,6 @@ public class JumpController : MonoBehaviour
 
     public void Jump(float power)
     {
-        //if (IsGrounded())
-        {
-            rbody.AddForceAtPosition(Vector3.up * power, transform.position);
-        }
+        usePower = power;
     }
 }
